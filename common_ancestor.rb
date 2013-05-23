@@ -16,6 +16,7 @@ class BSTNode
 	end
 end
 
+
 class Finder
 	# tree: the binary seach tree
 	# x: value one
@@ -23,6 +24,10 @@ class Finder
 	def self.bst_find_common_ancestor(current_node, x, y)
 		if current_node == nil
 			raise "null root"
+		end
+
+		if x == y
+			raise "nodes values desired cannot be equal"
 		end
 
 		# if the current node value is greater, go to the left subtree
