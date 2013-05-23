@@ -1,0 +1,36 @@
+require_relative 'common_ancestor'
+
+describe Finder do
+	context "of small tree" do
+		before :each do
+			# going to create a tree
+			@tree = Node.new(10)
+			@tree.left_child = Node.new(6)
+			@tree.left_child.left_child = Node.new(4)
+			@tree.left_child.right_child = Node.new(8)
+			@tree.right_child = Node.new(14)
+			@tree.right_child.left_child = Node.new(12)
+			@tree.right_child.right_child = Node.new(16)
+		end
+
+		it "finds the correct ancestor node for leaf nodes" do
+			ancestor = Finder.bst_find_common_ancestor(@tree, 4, 8)
+			expect(ancestor).to eq 6
+		end
+
+		it "finds ancestor for nodes on opposite sides of root" do
+			ancestor = Finder.bst_find_common_ancestor(@tree, 4, 16)
+			expect(ancestor).to eq 10
+		end
+
+		it "raises an exception if the root node is nil" do
+			lambda { Finder.bst_find_common_ancestor(nil, 4, 16)}.should raise_error 
+		end
+
+		it "child node is null" do
+			@tree.left_child.right_child = nil
+			ancestor = Finder.bst_find_common_ancestor(@tree, 4, 8)
+			expect(ancestor).to eq 6
+		end
+	end
+end
