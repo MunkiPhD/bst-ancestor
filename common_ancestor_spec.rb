@@ -4,13 +4,13 @@ describe Finder do
 	context "of small tree" do
 		before :each do
 			# going to create a tree
-			@tree = Node.new(10)
-			@tree.left_child = Node.new(6)
-			@tree.left_child.left_child = Node.new(4)
-			@tree.left_child.right_child = Node.new(8)
-			@tree.right_child = Node.new(14)
-			@tree.right_child.left_child = Node.new(12)
-			@tree.right_child.right_child = Node.new(16)
+			@tree = BSTNode.new(10)
+			@tree.left_child = BSTNode.new(6)
+			@tree.left_child.left_child = BSTNode.new(4)
+			@tree.left_child.right_child = BSTNode.new(8)
+			@tree.right_child = BSTNode.new(14)
+			@tree.right_child.left_child = BSTNode.new(12)
+			@tree.right_child.right_child = BSTNode.new(16)
 		end
 
 		it "finds the correct ancestor node for leaf nodes" do

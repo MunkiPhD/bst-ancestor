@@ -8,7 +8,7 @@
 #		If the current node value is greater than x and y, then the ancestor is in the left subtree
 #		if the current node value is greater than one node and less than the other, then we found our common ancestor
 
-class Node
+class BSTNode
 	attr_accessor :left_child, :right_child, :value
 
 	def initialize(value)
